@@ -22,4 +22,7 @@
 #include <readline/readline.h>
 #include "../libft/libft.h"
 
+
+char    *get_env_var(char *env_line);
+char    *get_env_line(char **env, char *varname);
 #endif

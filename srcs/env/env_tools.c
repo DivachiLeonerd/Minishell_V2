@@ -19,7 +19,9 @@ char    *get_env_var(char *env_line)
     int     i;
 
     i = 0;
+    if (env_line == NULL)
+        return (NULL);
     while (env_line[i] != '=')
         i++;
-    return (ft_strdup(&(env_line[++i])));
+    return (&(env_line[++i]));
 }

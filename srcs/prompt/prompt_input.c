@@ -13,26 +13,50 @@ int is_line_blank(char *line)
    return (1);
 }
 
+char    *get_new_cwd(char   *cwd)
+{
+    char    new_cwd[255];
+    char    *home_value;
+    int     i;
+    int     j;
+
+    i = 0;
+    j = 0;
+    home_value = get_env_var(get_env_line(env, "HOME"));
+    while (cwd[i])
+    {
+        if (!ft_strncmp("home/", &(cwd[i]), 6))
+        {
+            while ()
+            {
+
+            }
+        }
+)
+        new_cwd[j] = cwd[i]
+        i++;
+    }
+
+}
 char    *print_prompt()
 {
     int i;
    char *cwd;
-   char *new_cwd;
+   char *var_value;
 
-    new_cwd = NULL;
    i = 0;
    cwd = getcwd(NULL, 0);
    if (!cwd)
        return (NULL);
-   while (cwd[i])
-   {
-        if (!ft_strncmp(get_env_user(env), &(cwd[i]), ft_strlen(&(cwd[i]))))
+    while (cwd[i])
+    {
+        if (!ft_strncmp("home/", &(cwd[i]), 6))
             break ;
         i++;
-   }
-   if (cwd[i] == NULL)
+    }
+   if (cwd[i] == '\0')
         return (cwd);
-    new_cwd = get_new_cwd(cwd);
+    return (get_new_cwd(cwd));
 }
 
 char    *get_prompt_line()
@@ -42,7 +66,7 @@ char    *get_prompt_line()
     line = NULL;
     while (1)
     {
-        line = readline(print_prompt());
+        line = readline(print_prompt(env));
         if (!line)
         {
             printf("exit.\n");
