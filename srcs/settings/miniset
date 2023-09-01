@@ -1,0 +1,5 @@
+#everything in the same line and after an hashtag is a comment
+
+#here we can put small "macros" like this:
+
+'grep' = 'grep -color=auto'

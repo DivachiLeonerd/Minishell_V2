@@ -10,4 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-Very intelligent code;
+#include "../headers/minishellv2.h"
+
+t_global g_struct;
+
+int main(int argc, char **argv, char **env)
+{
+    gvar.env = build_envp(env);
+    
+}

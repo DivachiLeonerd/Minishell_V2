@@ -8,7 +8,7 @@ char    *get_env_line(char **env, char *varname)
     while (env[i])
     {
         if (!ft_strncmp(env[i], "HOME", 4))
-            return (env[i]);
+                return (env[i]);
         i++;
     }
     return (NULL);

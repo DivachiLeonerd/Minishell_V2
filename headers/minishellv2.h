@@ -21,8 +21,22 @@
 #include <readline/history.h>
 #include <readline/readline.h>
 #include "../libft/libft.h"
+#include "env.h"
 
+
+typedef struct  s_global
+{
+    char    **env;
+    int     chad_exitstatus;
+}t_global;
+
+extern t_global gvar;
 
 char    *get_env_var(char *env_line);
 char    *get_env_line(char **env, char *varname);
+char    *get_prompt_line();
+char    *print_prompt();
+char    *get_new_cwd(char   *cwd);
+int is_line_blank(char *line);
+
 #endif
