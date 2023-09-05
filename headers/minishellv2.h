@@ -28,12 +28,12 @@ typedef struct  s_global
 {
     char    **env;
     int     chad_exitstatus;
-}t_global;
+}g_struct;
 
-extern t_global gvar;
+extern g_struct gvar;
 
 char    *get_env_var(char *env_line);
-char    *get_env_line(char **env, char *varname);
+char    *get_env_line(char **env);
 char    *get_prompt_line();
 char    *print_prompt();
 char    *get_new_cwd(char   *cwd);

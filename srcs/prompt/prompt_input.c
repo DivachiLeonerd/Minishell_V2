@@ -25,7 +25,7 @@ char    *get_new_cwd(char   *cwd)
     i = 0;
     j = 0;
     ft_memset(new_cwd, 0, 255);
-    home_value = get_env_var(get_env_line(gvar.env, "HOME"));
+    home_value = get_env_var(get_env_line(gvar.env));
     home_value = ft_substr(home_value, 0, ft_strlen(home_value));
     while (cwd[i])
     {
@@ -51,7 +51,6 @@ char    *print_prompt()
 {
     int i;
    char *cwd;
-   char *var_value;
 
    i = 0;
    cwd = getcwd(NULL, 0);

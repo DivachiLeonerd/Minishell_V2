@@ -41,21 +41,21 @@ char	**build_envp(char **envp)
 
 	i = 0;
 	len = how_many_arrays(envp);
-	g_struct.myenvp = malloc((len + 1) * sizeof(char *));
-	if (g_struct.myenvp == NULL)
+	gvar.myenvp = malloc((len + 1) * sizeof(char *));
+	if (gvar.myenvp == NULL)
 		return (NULL);
-	g_struct.myenvp[len] = NULL;
+	gvar.myenvp[len] = NULL;
 	while (i < len)
 	{
-		g_struct.myenvp[i] = ft_strdup(envp[i]);
-		if (g_struct.myenvp[i] == NULL)
+		gvar.myenvp[i] = ft_strdup(envp[i]);
+		if (gvar.myenvp[i] == NULL)
 		{
-			free_bad_env_build(g_struct.myenvp, i);
+			free_bad_env_build(gvar.myenvp, i);
 			return (NULL);
 		}
 		i++;
 	}
-	return (g_struct.myenvp);
+	return (gvar.myenvp);
 }
 
 char	**env_realloc(char **envp, char **new_env,

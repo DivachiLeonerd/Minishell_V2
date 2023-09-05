@@ -1,6 +1,6 @@
 #include "../../headers/minishellv2.h"
 
-char    *get_env_line(char **env, char *varname)
+char    *get_env_line(char **env)
 {
     int i;
 

@@ -12,10 +12,12 @@
 
 #include "../headers/minishellv2.h"
 
-t_global g_struct;
+g_struct gvar;
 
 int main(int argc, char **argv, char **env)
 {
     gvar.env = build_envp(env);
+
+    get_prompt_line();
     
 }
