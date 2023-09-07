@@ -32,11 +32,5 @@ typedef struct  s_global
 
 extern g_struct gvar;
 
-char    *get_env_var(char *env_line);
-char    *get_env_line(char **env);
-char    *get_prompt_line();
-char    *print_prompt();
-char    *get_new_cwd(char   *cwd);
-int is_line_blank(char *line);
 
 #endif
