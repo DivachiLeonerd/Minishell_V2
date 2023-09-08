@@ -22,15 +22,18 @@ int	syntax_checker(char *command_line)
 
 	special_repeated = 0;
 	i = 0;
-	if (!command_line)
+	if (!command_line || command_line[0] == '|')
 		return (1);
-	if (command_line[0] == '|')
-		return (1);
+	while (command_line[i] == ' ')
+		i++;
+		if (ft_strlen(command_line) == (size_t)i)
+			return (1);
 	while (command_line[i])
 	{
 		if (command_line[i] == '|')
 		{
 			//Should We implement here_strings?
+			//Yes, we SHOULD. But are we?
 			if (command_line[i + 1] == '<' || command_line[i + 1] == '>' || command_line[i + 1] == '|')
 			{
 				perror("syntax error. Didn't expect '\''");
