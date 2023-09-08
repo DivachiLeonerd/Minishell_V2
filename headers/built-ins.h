@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-# include "../define.h"
+# include "define.h"
 # include "../libft/libft.h"
 # include <signal.h>
 

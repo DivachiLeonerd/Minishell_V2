@@ -13,7 +13,7 @@
 // input: char *command_line
 // checks if basic syntatic rules are met. If that's the case then go to parser
 // if not then just write an error to stderr and go wait for further input again
-#include "../headers/minishellv2.h"
+#include "../../headers/minishellv2.h"
 
 int	syntax_checker(char *command_line)
 {

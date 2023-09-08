@@ -22,7 +22,8 @@
 #include <readline/readline.h>
 #include "../libft/libft.h"
 #include "env.h"
-
+#include "common.h"
+#include "input.h"
 
 typedef struct  s_global
 {

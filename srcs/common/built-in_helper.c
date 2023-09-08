@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../../headers/built-ins.h"
-#include "../tree/parser.h"
+#include "../../headers/parser.h"
 #include "../minishell.h"
 
 void	free_bad_env_build(char **envp, int failed_index)
