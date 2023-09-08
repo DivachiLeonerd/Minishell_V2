@@ -1,6 +1,6 @@
 #include "../../headers/minishellv2.h"
 
-char    *get_env_line(char **env, char *varname)
+char    *get_env_line(char **env)
 {
     int i;
 
@@ -8,7 +8,7 @@ char    *get_env_line(char **env, char *varname)
     while (env[i])
     {
         if (!ft_strncmp(env[i], "HOME", 4))
-            return (env[i]);
+                return (env[i]);
         i++;
     }
     return (NULL);

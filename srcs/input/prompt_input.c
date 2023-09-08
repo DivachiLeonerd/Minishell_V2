@@ -19,30 +19,38 @@ char    *get_new_cwd(char   *cwd)
     char    *home_value;
     int     i;
     int     j;
+    int     numof_bs;
 
+    numof_bs = 0;
     i = 0;
     j = 0;
-    home_value = get_env_var(get_env_line(env, "HOME"));
+    ft_memset(new_cwd, 0, 255);
+    home_value = get_env_var(get_env_line(gvar.env));
+    home_value = ft_substr(home_value, 0, ft_strlen(home_value));
     while (cwd[i])
     {
-        if (!ft_strncmp("home/", &(cwd[i]), 6))
+        if (!ft_strncmp(home_value, &(cwd[i]), ft_strlen(home_value)))
         {
-            while ()
+            while (numof_bs < 2)
             {
-
+                i++;
+                if (cwd[i] == '\\')
+                    numof_bs++;
             }
+            new_cwd[j] = '~';
+            j++;
         }
-)
-        new_cwd[j] = cwd[i]
-        i++;
+        if (new_cwd[j] && cwd[i])
+            new_cwd[j++] = cwd[i++];
     }
-
+    free(home_value);
+    home_value = ft_substr(new_cwd, 0, ft_strlen(new_cwd));
+    return (home_value);
 }
 char    *print_prompt()
 {
     int i;
    char *cwd;
-   char *var_value;
 
    i = 0;
    cwd = getcwd(NULL, 0);
@@ -55,8 +63,8 @@ char    *print_prompt()
         i++;
     }
    if (cwd[i] == '\0')
-        return (cwd);
-    return (get_new_cwd(cwd));
+        return (readline(cwd));
+    return (readline(get_new_cwd(cwd)));
 }
 
 char    *get_prompt_line()
@@ -66,7 +74,7 @@ char    *get_prompt_line()
     line = NULL;
     while (1)
     {
-        line = readline(print_prompt(env));
+        line = print_prompt();
         if (!line)
         {
             printf("exit.\n");
@@ -79,4 +87,5 @@ char    *get_prompt_line()
     }
     //last_line is gonna be a new variable that represents the last
     //command in a .shell_history text file
-}   return (line);
+    return (line);
+}

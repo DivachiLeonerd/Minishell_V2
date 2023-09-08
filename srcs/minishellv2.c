@@ -10,4 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-Very intelligent code;
+#include "../headers/minishellv2.h"
+
+g_struct gvar;
+
+int main(int argc, char **argv, char **env)
+{
+    gvar.env = build_envp(env);
+
+    get_prompt_line();
+    
+}

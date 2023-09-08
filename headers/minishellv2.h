@@ -21,8 +21,16 @@
 #include <readline/history.h>
 #include <readline/readline.h>
 #include "../libft/libft.h"
+#include "env.h"
 
 
-char    *get_env_var(char *env_line);
-char    *get_env_line(char **env, char *varname);
+typedef struct  s_global
+{
+    char    **env;
+    int     chad_exitstatus;
+}g_struct;
+
+extern g_struct gvar;
+
+
 #endif

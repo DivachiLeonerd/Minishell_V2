@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "built-ins.h"
+#include "../../headers/built-ins.h"
 
 void	add_var_to_env(char **new_env, char **old_env, char *var)
 {
