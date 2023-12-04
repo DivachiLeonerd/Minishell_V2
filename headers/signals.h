@@ -5,6 +5,5 @@
 
 void    sigmode_change(int mode);
 void    normal_mode(int signum);
-void    execution_mode(int signum);
 
 #endif

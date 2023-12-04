@@ -18,12 +18,12 @@ char    *get_user_input()
     {
         line = readline("I am Born Again:");
         if (!line)
-            continue;
-        if (line[0] == '0')
         {
             free(line);
             return (NULL);
         }
+        if (line[0] == '0')
+            free(line);
         printf("\n");
     }
 }

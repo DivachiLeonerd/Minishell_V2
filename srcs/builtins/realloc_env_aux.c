@@ -12,6 +12,22 @@
 
 #include "../../headers/libft.h"
 
+char	*get_variable_name(char *message)
+{
+	int		i;
+	char	*var_name;
+	//message: MYVAR=NAME
+	i = 0;
+	if (!message || message[i] == 0)
+		return (NULL);
+	while (message[i] != '=' && message[i] != '\0')
+		i++;
+	var_name = malloc((i + 1) * sizeof(char));
+	var_name[i] = 0;
+	ft_strlcpy(var_name, &(message[0]), i + 1);
+	return (var_name);
+}
+
 void	add_var_to_env(char **new_env, char **old_env, char *var)
 {
 	int	i;

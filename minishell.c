@@ -12,8 +12,6 @@ g_controller gvar;
 
 int main(int argc, char **argv, char **envp)
 {
-    gvar.normal_act.sa_handler = normal_mode;
-    gvar.execution_act.sa_handler = execution_mode;
     (void)argc;
     (void)argv;
     gvar.envp = build_envp(envp);
