@@ -22,8 +22,10 @@ char    *get_user_input()
             free(line);
             return (NULL);
         }
-        if (line[0] == '0')
+        else if (line[0] == '\0')
             free(line);
+        else
+            return (line);
         printf("\n");
     }
 }

@@ -25,6 +25,7 @@ int main(int argc, char **argv, char **envp)
         line = get_user_input();
         if (!line)
             break;
+        free(line);
     //change signal behaviour to "Executing mode"
        // sigmode_change(EXECUTION);
     //if input is correct, then start working the command line
