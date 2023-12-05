@@ -3,14 +3,6 @@
 #include <stdio.h>
 #include "../../headers/globals.h"
 
-
-
-
-
-
-
-
-
 void    normal_mode(int signum)
 {
     if (signum == SIGINT)

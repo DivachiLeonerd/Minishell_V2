@@ -23,7 +23,7 @@ char    *str_expander(char *varname)
             return (NULL);
         if (ft_strncmp(varname, &(gvar.envp[i][1]), ft_strlen(varname)) == 0)
         {
-            return (ft_substr(&(gvar.envp[i][1]), ft_strlen(gvar.envp[i]) + 1));
+            return (ft_substr(gvar.envp[i], 1, ft_strlen(gvar.envp[i]) + 1));
         }
         i++;
     }

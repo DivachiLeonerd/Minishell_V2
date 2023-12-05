@@ -3,5 +3,6 @@
 
 void    free_matrix(char **matrix);
 char    *print_prompt(int r_flag);
+char    *str_expander(char *varname);
 
 #endif

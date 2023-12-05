@@ -1,6 +1,7 @@
 #include <readline/readline.h>
 #include "../../headers/globals.h"
 #include "../../headers/libft.h"
+#include "../../headers/common.h"
 
 static char	*homedir_subst(char *pwd)
 {
@@ -8,7 +9,7 @@ static char	*homedir_subst(char *pwd)
 	size_t	size;
 
 	aux = str_expander(ft_strdup("$HOME"));
-	if (ft_strncmp(pwd, aux, ft_strlen(aux)) == 0)
+	if (ft_strncmp(pwd, aux, ft_strlen("HOME")) == 0)
 	{
 		size = ft_strlen(aux);
 		free(aux);

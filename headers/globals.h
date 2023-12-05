@@ -3,8 +3,6 @@
 
 # include <stdlib.h>
 #include <signal.h>
-#define NORMAL 0
-#define EXECUTION 0
 
 typedef struct s_heredoc
 {
@@ -23,6 +21,8 @@ typedef struct s_tree
 	struct s_tree	*back;
 }t_tree;
 
+#define NORMAL 0
+#define EXECUTION 1
 # define I_REDIR 1
 # define O_REDIR 2
 # define PIPE 3

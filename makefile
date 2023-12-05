@@ -1,6 +1,6 @@
 NAME:=minishell
 CC:= gcc
-CFLAGS:= -Wextra -Werror -Wall
+CFLAGS:= -Wextra -Werror -Wall -fsanitize=address -g
 PRJT_PATH:=~/Documents/Minishell_V2/
 SRCS:=${PRJT_PATH}srcs/
 BUILTIN_PATH:=${SRCS}builtins/

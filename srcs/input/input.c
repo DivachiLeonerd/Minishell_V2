@@ -3,6 +3,7 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <stdio.h>
+#include "../../headers/common.h"
 
 // This is gonna handle all user input as commands
 // it's gonna check for command line validity and it's going to
@@ -16,7 +17,8 @@ char    *get_user_input()
     line = NULL;
     while (1)
     {
-        line = readline("I am Born Again:");
+        print_prompt(0);
+        line = readline(NULL);
         if (!line)
         {
             free(line);
