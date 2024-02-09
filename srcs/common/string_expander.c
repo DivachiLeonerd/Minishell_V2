@@ -13,7 +13,8 @@ char    *str_expander(char *varname)
     //both single and double quotes care about whitespace inside of them
 
     int i;
-
+    ssize_t line_len;
+    ssize_t var_len;
     i = 0;
     if (gvar.envp == NULL)
         return (NULL);
@@ -21,9 +22,13 @@ char    *str_expander(char *varname)
     {
         if (gvar.envp[i] == NULL)
             return (NULL);
-        if (ft_strncmp(varname, &(gvar.envp[i][1]), ft_strlen(varname)) == 0)
+        var_len = ft_strlen(&(varname[1]));
+        line_len = ft_strlen(gvar.envp[i]);
+        if (ft_strncmp(&(varname[1]), gvar.envp[i], var_len) == 0)
         {
-            return (ft_substr(gvar.envp[i], 1, ft_strlen(gvar.envp[i]) + 1));
+            free(varname);
+            return (ft_substr(gvar.envp[i], var_len + 1,
+                        line_len - var_len - 1));
         }
         i++;
     }

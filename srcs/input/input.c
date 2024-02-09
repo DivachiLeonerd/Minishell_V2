@@ -25,9 +25,12 @@ char    *get_user_input()
             return (NULL);
         }
         else if (line[0] == '\0')
-            free(line);
+        {
+            printf("\n");
+            return (line);
+        }
         else
             return (line);
-        printf("\n");
     }
 }
+
