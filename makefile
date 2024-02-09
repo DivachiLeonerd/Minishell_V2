@@ -1,15 +1,32 @@
-#makefile should put everything in static libraries and should also handle tests
-NAME:=Minishell
+NAME:=minishell
 CC:= gcc
-PRJT_PATH:= ~/Documents/Minishell_V2/
-CFLAGS:= -Wall -Werror -Wextra
-COMMON_SRCS:= ${PRJT_PATH}common/%.c
-HEADERS:= -I${PRJT_PATH}/headers/
-PROMPT_PATH:=${PRJT_PATH}srcs/prompt/
-ENV_PATH:=${PRJT_PATH}srcs/env
-INPUT_PATH:=${PRJT_PATH}srcs/input/
-BUILTIN_PATH:=${PRJT_PATH}srcs/built-ins/
-TEST_PATH:=${PRJT_PATH}/tests/
+CFLAGS:= -Wextra -Werror -Wall -fsanitize=address -g
+PRJT_PATH:=~/Documents/Minishell_V2/
+SRCS:=${PRJT_PATH}srcs/
+BUILTIN_PATH:=${SRCS}builtins/
+COMMON_PATH:=${SRCS}common/
+ENV_PATH:=${SRCS}env/
+INPUT_PATH:=${SRCS}input/
+SIGNALS_PATH:=${SRCS}signals/
+HEADERS:= ${PRJT_PATH}headers/
+LIB:=ar -rcs
+LIBFT_PATH:= ${PRJT_PATH}srcs/libft/
 
-ptest:	libft.a
-	${CC} ${CFLAGS} ${TEST_PATH}prompt_testing.c ${HEADERS} 
+NAME: all
+
+all: libft.a
+	${CC} ${CFLAGS} ${NAME}.c ${BUILTIN_PATH}*.c \
+		${COMMON_PATH}*.c \
+		${ENV_PATH}*.c \
+		${INPUT_PATH}*.c \
+		${SIGNALS_PATH}*.c \
+		-I${HEADERS} -L./ -lft -lreadline -o minishell
+
+libft.a: 
+	${CC} ${CFLAGS} -c ${LIBFT_PATH}*.c -I${HEADERS} && \
+		${LIB} libft.a *.o 
+
+clean:
+		rm *.o
+
+

@@ -1,19 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   define.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: atereso- <atereso-@student.42lisboa.com>   +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 11:28:54 by afonso            #+#    #+#             */
-/*   Updated: 2023/05/23 16:57:50 by atereso-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#ifndef DEFINE_H
-# define DEFINE_H
+#ifndef GLOBALS_H
+#define GLOBALS_H
 
 # include <stdlib.h>
+#include <signal.h>
 
 typedef struct s_heredoc
 {
@@ -32,6 +21,8 @@ typedef struct s_tree
 	struct s_tree	*back;
 }t_tree;
 
+#define NORMAL 0
+#define EXECUTION 1
 # define I_REDIR 1
 # define O_REDIR 2
 # define PIPE 3
@@ -48,4 +39,16 @@ typedef struct s_tree
 
 void	free_matrix(char **envp);
 char	*find_command_path(char *command);
+
+typedef struct g_controller
+{
+	int					chad_exitstatus;
+	char				**envp;
+	struct sigaction	normal_act;
+	struct sigaction	execution_act;
+	char				*command_line;
+}g_controller;
+
+extern g_controller gvar;
+
 #endif
