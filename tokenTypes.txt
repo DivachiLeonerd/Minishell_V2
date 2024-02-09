@@ -1,0 +1,5 @@
+Set ints as macros for token types (typedef enum e iogurte magico)
+
+Special types: redirects(< 1, > 2), pipes(| 3), heredoc (<< 4) e append (>> 5) 
+
+Cada node da tree deve ter -> tokenID (int)(Avaliar necessidade), tokenType(int)(builtins -> 6, non-builtins/executables ->7,  words -> 8)
